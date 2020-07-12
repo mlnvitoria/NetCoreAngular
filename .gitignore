@@ -1,2 +1,6 @@
+.vs/*
+.vscode/*
 booksapi/.vs/*
 booksapi/.vscode/*
+booksapi/obj/*
+booksapi/bin/*

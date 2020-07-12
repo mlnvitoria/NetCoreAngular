@@ -2,10 +2,8 @@
 
 namespace booksapi.Models
 {
-    public class Category
+    public class Category : Entity
     {
-        [Key]
-        public long Id { get; set; }
 
         [Required(ErrorMessage = "The 'title' field is required")]
         [MinLength(3, ErrorMessage = "The 'title' field is too short.")]

@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace booksapi.Models
 {
@@ -14,5 +16,7 @@ namespace booksapi.Models
         [MinLength(3, ErrorMessage = "The 'code' field is too short.")]
         [MaxLength(100, ErrorMessage = "The 'code' field is too long.")]
         public string UrlCode { get; set; }
+
+        public List<Book> Books { get; set; }
     }
 }

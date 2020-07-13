@@ -14,15 +14,16 @@ namespace booksapi.Services
 
     public class UserService : IUserService
     {
-        // users hardcoded for simplicity, store in a db with hashed passwords in production applications
-        private List<User> _users = new List<User>
+        public BooksApiContext _Context { get; set; }
+        public UserService(BooksApiContext context)
         {
-            new User { Id = 1, Name = "Test", LastName = "User", Email = "test", Password = "test" }
-        };
+            _Context = context;
+        }
 
-        public async Task<User> Authenticate(string username, string password)
+
+        public async Task<User> Authenticate(string email, string password)
         {
-            var user = await Task.Run(() => _users.SingleOrDefault(x => x.Email == username && x.Password == password));
+            var user = await Task.Run(() => _Context.Users.SingleOrDefault(x => x.Email == email && x.Password == password));
 
             // return null if user not found
             if (user == null)
@@ -36,7 +37,7 @@ namespace booksapi.Services
 
         public async Task<IEnumerable<User>> GetAll()
         {
-            return await Task.Run(() => _users.WithoutPasswords());
+            return await Task.Run(() => _Context.Users.WithoutPasswords());
         }
     }
 }

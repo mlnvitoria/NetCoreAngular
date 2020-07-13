@@ -1,4 +1,4 @@
-using System;
+using booksapi.Models;
 using booksapi.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
@@ -24,7 +24,6 @@ namespace booksapi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCors();
-            services.AddControllers();
 
             // configure basic authentication 
             services.AddAuthentication("BasicAuthentication")
@@ -32,6 +31,10 @@ namespace booksapi
 
             // configure DI for application services
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<BooksApiContext, BooksApiContext>();
+
+            services.AddControllers();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

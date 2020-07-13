@@ -2,8 +2,12 @@
   "iisSettings": {
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
+    "iis": {
+      "applicationUrl": "http://books.api",
+      "sslPort": 0
+    },
     "iisExpress": {
-      "applicationUrl": "http://localhost:28770",
+      "applicationUrl": "http://localhost:5001/",
       "sslPort": 44354
     }
   },
@@ -11,8 +15,6 @@
   "profiles": {
     "IIS Express": {
       "commandName": "IISExpress",
-      "launchBrowser": true,
-      "launchUrl": "booksapi",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
